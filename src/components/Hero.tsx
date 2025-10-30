@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sprout } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import heroImage from "@/assets/hero-farm.jpg";
 
 export const Hero = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       <div 
@@ -34,11 +39,20 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="text-lg group">
+            <Button 
+              size="lg" 
+              className="text-lg group"
+              onClick={() => navigate(user ? '/' : '/auth')}
+            >
               Browse Farmers
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg"
+              onClick={() => navigate(user ? '/profile' : '/auth')}
+            >
               I'm a Farmer
             </Button>
           </div>

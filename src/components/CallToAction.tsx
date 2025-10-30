@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 export const CallToAction = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
   return (
     <section className="py-20 relative overflow-hidden">
       <div 
@@ -22,7 +27,12 @@ export const CallToAction = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg group">
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="text-lg group"
+              onClick={() => navigate(user ? '/profile' : '/auth')}
+            >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
