@@ -33,13 +33,13 @@ export const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
-              Browse Farmers
+            <a href="/farms" className="text-foreground hover:text-primary transition-colors font-medium">
+              Browse Farms
             </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/#how-it-works" className="text-foreground hover:text-primary transition-colors font-medium">
               How It Works
             </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/#about" className="text-foreground hover:text-primary transition-colors font-medium">
               About
             </a>
           </nav>

@@ -14,6 +14,53 @@ export type Database = {
   }
   public: {
     Tables: {
+      farms: {
+        Row: {
+          created_at: string
+          description: string | null
+          farm_name: string
+          farmer_id: string
+          id: string
+          image_url: string | null
+          location: string
+          rating: number | null
+          specialties: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          farm_name: string
+          farmer_id: string
+          id?: string
+          image_url?: string | null
+          location: string
+          rating?: number | null
+          specialties?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          farm_name?: string
+          farmer_id?: string
+          id?: string
+          image_url?: string | null
+          location?: string
+          rating?: number | null
+          specialties?: string[] | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "farms_farmer_id_fkey"
+            columns: ["farmer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
